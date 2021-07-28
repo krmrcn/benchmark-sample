@@ -15,6 +15,20 @@ namespace TestSolution
         };
 
         [Benchmark]
+        public List<int> SampleMethodList()
+        {
+            var uniqueList = new List<int>();
+
+            foreach (var item in sampleList)
+            {
+                if (!uniqueList.Contains(item))
+                    uniqueList.Add(item);
+            }
+
+            return uniqueList;
+        }
+
+        [Benchmark]
         public List<int> SampleMethodSortedList()
         {
             var uniqueList = new SortedList<int, int>();
